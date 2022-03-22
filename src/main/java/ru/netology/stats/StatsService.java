@@ -33,14 +33,14 @@ public class StatsService {
         return sumMonth; // сумма продаж за все месяцы
     }
 
+    public int avgSales(long[] sales) {
+        return sumSales(sales) / sales.length;
+    }
+
     public int countUp(long[] sales) {
-        int sumMonth = 0;
         int counter = 0;
         for (long sale : sales) {
-            sumMonth += sale;
-        }
-        for (long sale : sales) {
-            if (sale > sumMonth / sales.length) {
+            if (sale > sumSales(sales) / sales.length) {
                 counter++;
             }
         }
@@ -48,13 +48,9 @@ public class StatsService {
     }
 
     public int countLow(long[] sales) {
-        int sumMonth = 0;
         int counter = 0;
         for (long sale : sales) {
-            sumMonth += sale;
-        }
-        for (long sale : sales) {
-            if (sale < sumMonth / sales.length) {
+            if (sale < sumSales(sales) / sales.length) {
                 counter++;
             }
         }
