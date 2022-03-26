@@ -40,7 +40,7 @@ public class StatsService {
     public int countUp(long[] sales) {
         int counter = 0;
         for (long sale : sales) {
-            if (sale > sumSales(sales) / sales.length) {
+            if (sale > avgSales(sales)) {
                 counter++;
             }
         }
@@ -50,7 +50,7 @@ public class StatsService {
     public int countLow(long[] sales) {
         int counter = 0;
         for (long sale : sales) {
-            if (sale < sumSales(sales) / sales.length) {
+            if (sale < avgSales(sales)) {
                 counter++;
             }
         }
